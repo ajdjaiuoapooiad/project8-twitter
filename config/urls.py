@@ -25,7 +25,10 @@ urlpatterns = [
     #User
     
     #Item
+    path('item/create/',views.ItemCreateView.as_view()),
+    path('item/<str:pk>/',views.ItemDetailView.as_view()),
     path('',views.ItemView.as_view()),
+    
     
     
     #Category Tag
