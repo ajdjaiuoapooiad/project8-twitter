@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+
+
+
+
+{%block content%}
+    <div class="container">
+        <h1>POST削除ページ</h1>
+
+
+
+        <div class="border w-50 my-5">
+
+            <h4 class="">本当に削除していいですか？</h4>
+
+
+            <form action="" method="POST" class="ml-5">
+                {%csrf_token%}
+                <button type="submit" class="btn btn-info">削除する</button>
+            </form>
+
+
+        </div>
+
+    </div>
+{%endblock%}

@@ -23,4 +23,9 @@ class ItemUpdateView(generic.UpdateView):
     form_class=ItemCreateForm
     success_url='/'
     
+class ItemDeleteView(generic.DeleteView):
+    model=Item
+    template_name='pages/item_confim_delete.html'
+    success_url='/'
+    
     

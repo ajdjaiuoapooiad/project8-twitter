@@ -25,6 +25,7 @@ urlpatterns = [
     #User
     
     #Item
+    path('item/delete/<str:pk>/',views.ItemDeleteView.as_view()),
     path('item/update/<str:pk>/',views.ItemUpdateView.as_view()),
     path('item/create/',views.ItemCreateView.as_view()),
     path('item/<str:pk>/',views.ItemDetailView.as_view()),
