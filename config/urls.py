@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from base import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,7 +25,7 @@ urlpatterns = [
     #User
     
     #Item
-    
+    path('',views.ItemView.as_view()),
     
     
     #Category Tag
