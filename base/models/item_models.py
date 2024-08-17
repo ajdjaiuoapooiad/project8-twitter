@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.crypto import get_random_string
 import os
-
+from django.contrib.auth.models import User
 
 
 ##関数　　
@@ -44,11 +44,10 @@ class Item(models.Model):
     good_count=models.PositiveIntegerField('いいね',default=0)
     usertext=models.CharField('user_itemの紐付け用',max_length=50,default='a')
     
-    """
+ 
     ##usernameとリンクさせる
-    username=
+    username=models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
     
-    """
   
     
     category=models.ForeignKey(Category,on_delete=models.SET_NULL,blank=True,null=True)

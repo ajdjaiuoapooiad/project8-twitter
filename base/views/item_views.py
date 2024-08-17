@@ -22,6 +22,17 @@ class ItemCreateView(generic.CreateView):
     form_class=ItemCreateForm
     success_url='/'
     
+    def form_valid(self,form):
+    
+        # Postのusername      ユーザーを投稿者として保存できるようにする
+        object=form.save(commit=False)
+        object.username=self.request.user  # ログインユーザ取得 usernameにuserの名前が自動で格納する
+        object.save()
+        return super().form_valid(form)
+      
+      
+      
+    
 class ItemUpdateView(generic.UpdateView):
     model=Item
     template_name='pages/item_update.html'
