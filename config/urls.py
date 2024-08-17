@@ -23,6 +23,7 @@ urlpatterns = [
     #Account
     
     #User
+    path('signup/',views.signupfunc),
     
     #Item
     path('item/delete/<str:pk>/',views.ItemDeleteView.as_view()),
