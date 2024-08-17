@@ -34,6 +34,8 @@ urlpatterns = [
     path('signup/',views.signupfunc),
     
     #Item
+    path('item/good/<str:pk>/',views.goodfunc),
+    
     path('item/delete/<str:pk>/',views.ItemDeleteView.as_view()),
     path('item/update/<str:pk>/',views.ItemUpdateView.as_view()),
     path('item/create/',views.ItemCreateView.as_view()),

@@ -39,14 +39,17 @@ class Item(models.Model):
     
     
     ##いいね　閲覧数
+   
+    read_count=models.PositiveIntegerField('閲覧数',default=0)
+    good_count=models.PositiveIntegerField('いいね',default=0)
+    usertext=models.CharField('user_itemの紐付け用',max_length=50,default='a')
+    
     """
-    read_count=
-    good_count=
-    usertext=
     ##usernameとリンクさせる
     username=
     
     """
+  
     
     category=models.ForeignKey(Category,on_delete=models.SET_NULL,blank=True,null=True)
     tags=models.ManyToManyField(Tag,blank=True)
