@@ -23,6 +23,7 @@ urlpatterns = [
     #Account
     
     #User
+    path('login/',views.loginfunc),
     path('signup/',views.signupfunc),
     
     #Item
