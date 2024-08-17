@@ -36,3 +36,19 @@ def loginfunc(request):
 def logoutfunc(request):
     logout(request)
     return redirect('/login/')
+
+
+class UserView(generic.ListView):
+    model=User
+    model=Item
+    template_name='pages/user_list.html'
+    
+class UserGoodView(generic.ListView):
+    model=User
+    model=Item
+    template_name='pages/user_good.html'
+    
+class UserLikeView(generic.ListView):
+    model=User
+    model=Item
+    template_name='pages/user_like.html'

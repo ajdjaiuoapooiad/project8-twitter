@@ -1,0 +1,87 @@
+{%extends 'base.html'%}
+{% load static %}
+
+{% block customcss %}
+<link rel='stylesheet' type='text/css' href="{% static '/css/user_list.css' %}">
+{% endblock customcss %}
+
+
+
+{%block content%}
+
+
+        <!----------user_icon------------------------->
+        
+        <div class="relative ">
+          <img class="icon_image rounded-circle absolute" src="/static/sample_image/kkrn_icon_user_1.png" alt="Circle image"  >
+
+          <h1 class="absolute text1">{{user.username}}</h1>
+          <a href="" class="btn btn-primary absolute text2">フォロー</a>
+
+
+
+          <img src="/static/sample_image/pexels-iriser-673803.jpg" alt="" class="mypage-img" width="100%" height="200px">
+          
+
+        </div>
+
+
+
+
+        <!---------navbar--------------------------->
+
+
+        <div class="">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
+                    <li class="nav-item mx-5 ">
+                      <a class="nav-link " href="/user/{{user.pk}}/">投稿一覧</a>
+                    </li>
+                    <li class="nav-item mx-5 ">
+                      <a class="nav-link" href="/user/good/{{user.pk}}/">お気に入り一覧</a>
+                    </li>
+                    <li class="nav-item mx-5 active">
+                        <a class="nav-link" href="/user/like/{{user.pk}}/">フォロー一覧<span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                  </ul>
+                </div>
+            </nav>
+
+        </div>
+              
+
+
+        <!------item一覧------------------------------>
+        <div class="container">
+            <h1 class="my-5">自分のフォロー一覧</h1>
+    
+            {%for object in object_list%}
+    
+            <div class="alert alert-secondary" role="alert">
+
+
+                <div class="row my-3">
+                    <img class="rounded-circle" src="/static/sample_image/kkrn_icon_user_1.png" alt="Circle image" height="100px" width="100px">
+                    <h4 class="">username</h4>
+                </div>
+
+
+                <a href="/item/{{object.pk}}/" class="font-weight-bold text-dark"><p>{{object.text|linebreaksbr}}</p></a>
+
+                {%if object.image%}
+                <img src="/{{object.image}}" alt="" width="100%" height="">
+                {%endif%}
+                <a href="/item/update/{{object.pk}}/" class="btn btn-info">編集</a>                
+                <a href="/item/delete/{{object.pk}}/" class="btn btn-danger">削除</a>
+                
+            </div>
+            {%endfor%}
+        </div>
+        
+
+{%endblock%}

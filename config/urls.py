@@ -16,13 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from base import views
+from django.conf import settings  # 増えた
+from django.conf.urls.static import static  # 増えた
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     
-    #Account
     
     #User
+    path('user/like/<int:pk>/',views.UserLikeView.as_view()), 
+    path('user/good/<int:pk>/',views.UserGoodView.as_view()), 
+    path('user/<int:pk>/',views.UserView.as_view()),  #userモデルのpkが入っている
+    
+    #Account
     path('logout/',views.logoutfunc),
     path('login/',views.loginfunc),
     path('signup/',views.signupfunc),
@@ -37,4 +43,4 @@ urlpatterns = [
     
     
     #Category Tag
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

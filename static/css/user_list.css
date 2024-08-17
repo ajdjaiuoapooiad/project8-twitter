@@ -1,0 +1,40 @@
+body{
+    background-color: black;
+    color: white;
+}
+    
+
+.relative{
+    position: relative;
+    height: 400px;
+}
+
+
+/*username btn の配置-----------------------*/
+
+.absolute.text1{
+    position: absolute;
+    top:280px;
+    left:40px;
+    font-size:50px;
+}
+
+.absolute.text2{
+    position: absolute;
+    top:240px;
+    left:600px;
+}
+
+
+/*共通でないclassを指定する-------------------------*/
+
+.icon_image{ 
+    position: absolute;
+    height:150px;
+    width:150px;
+    top:130px;
+    left:30px;
+}
+.dropdown{
+    margin-left: 180px;
+}
