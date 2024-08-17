@@ -15,11 +15,11 @@
 
   <body>
 
+    {% load static %}
 
     {% block customcss %}
-
+    <link rel='stylesheet' type='text/css' href="{% static '/css/base.css' %}">
     {% endblock customcss %}
-
     
     <header class="">
 
