@@ -31,3 +31,8 @@ def loginfunc(request):
             
         
     return render(request,'pages/signup_login.html',{'some':100})
+
+
+def logoutfunc(request):
+    logout(request)
+    return redirect('/login/')
