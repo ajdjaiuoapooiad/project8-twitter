@@ -8,9 +8,13 @@ class ItemView(generic.ListView):
     model=Item
     template_name='pages/item_list.html'
     
-class ItemDetailView(generic.DetailView):
-    model=Item
-    template_name='pages/item_detail.html'
+def detailfunc(request,pk):            ##変更
+    ##追加  
+    object=Item.objects.get(pk=pk)
+    object.read_count += 1 #閲覧数をインクリメント
+    object.save()
+    return render(request,'pages/item_detail.html',{'object':object})
+    
     
 class ItemCreateView(generic.CreateView):
     model=Item
