@@ -39,9 +39,18 @@ def logoutfunc(request):
 
 
 class UserView(generic.ListView):
-    model=User
     model=Item
     template_name='pages/user_list.html'
+    
+    def get_queryset(self):  ###追加
+        current_user = self.request.user.username # ログイン中のユーザ名を取得（CustomUserモデルのusernameレコードの値を取得）
+        user_data = User.objects.get(username=current_user) # QuerySet(条件が一致するレコードを全て取得)
+        if user_data:
+            queryset = Item.objects.filter(username=user_data).all() # QuerySet（一致するレコード全て取得）
+          
+        return queryset
+    
+    
     
 class UserGoodView(generic.ListView):
     model=User

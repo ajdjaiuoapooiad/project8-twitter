@@ -1,0 +1,11 @@
+body{
+    background-color: black;
+    color: white;
+   
+}
+
+.item_header{
+    height: 60px;
+    background-color: gray;
+    color: white;
+}

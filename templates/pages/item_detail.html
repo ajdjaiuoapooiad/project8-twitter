@@ -1,4 +1,9 @@
 {%extends 'base.html'%}
+{% load static %}
+
+{% block customcss %}
+<link rel='stylesheet' type='text/css' href="{% static '/css/item_detail.css' %}">
+{% endblock customcss %}
 
 
 
@@ -8,28 +13,40 @@
 
         <div class="">
 
-
-            <div class="alert alert-secondary" role="alert">
-
-
-                <div class="row my-3">
-                    <img class="rounded-circle" src="/static/sample_image/kkrn_icon_user_1.png" alt="Circle image" height="100px" width="100px">
-                    <h4 class="">username</h4>
+            <div class="item">
+                <div class="toast fade show " role="alert" aria-live="assertive" aria-atomic="true">
+                    
+                    <div class="item_header toast-header" >
+                        <div class="row my-3">
+                            <img class="rounded-circle" src="/static/sample_image/kkrn_icon_user_1.png" alt="Circle image" height="60px" width="60px">
+                            <h4 class="my-3 mx-2">username</h4>
+                        </div>
+    
+                      <small class="ml-5">{{object.created_at}}</small>
+                   
+                    </div>
+    
+    
+                    <div class="toast-body">
+    
+                        <a href="/item/{{object.pk}}/" class="font-weight-bold text-dark"><p>{{object.text|linebreaksbr}}</p></a>
+    
+                        {%if object.image%}
+                        <img src="/{{object.image}}" alt="" width="100%" height="">
+                        {%endif%}
+    
+                        <a href="/item/good/{{object.pk}}/" class="btn btn-success">いいね{{object.good_count}}</a>
+                        <a href="" class="btn btn-info">閲覧数{{object.read_count}}</a>
+                        <a href="/item/update/{{object.pk}}/" class="btn btn-info">編集</a>                
+                        <a href="/item/delete/{{object.pk}}/" class="btn btn-danger">削除</a>
+                
+                    </div>
+    
                 </div>
-
-
-                <a href="/item/{{object.pk}}/" class="font-weight-bold text-dark"><p>{{object.text|linebreaksbr}}</p></a>
-
-                {%if object.image%}
-                <img src="/{{object.image}}" alt="" width="100%" height="">
-                {%endif%}
-                
-                <a href="" class="btn btn-info">閲覧数{{object.read_count}}</a>
-
-                <a href="/item/update/{{object.pk}}/" class="btn btn-info">編集</a>                
-                <a href="/item/delete/{{object.pk}}/" class="btn btn-danger">削除</a>
-                
+    
             </div>
+
+
 
 
             

@@ -35,6 +35,11 @@ body{
     top:130px;
     left:30px;
 }
-.dropdown{
-    margin-left: 180px;
+
+/*-------item一覧------------------------*/
+.header_line{
+    background-color: black;
+    color: white;
+    height: 60px;
 }
+
