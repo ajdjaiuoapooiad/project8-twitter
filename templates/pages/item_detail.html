@@ -18,8 +18,8 @@
                     
                     <div class="item_header toast-header" >
                         <div class="row my-3">
-                            <img class="rounded-circle" src="/static/sample_image/kkrn_icon_user_1.png" alt="Circle image" height="60px" width="60px">
-                            <h4 class="my-3 mx-2">username</h4>
+                            <img class="rounded-circle" src="/{{user.profile.image}}" alt="Circle image" height="60px" width="60px">
+                            <h4 class="my-3 mx-2">{{user.profile.name}}</h4>
                         </div>
     
                       <small class="ml-5">{{object.created_at}}</small>

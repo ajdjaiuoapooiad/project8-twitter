@@ -37,11 +37,15 @@
 
           <div class="container">
 
+
+            <h1><a href="/"><span class="badge badge-dark">Home</span></a></h1>
             <h1><a href="/item/create/"><span class="badge badge-dark">Create</span></a></h1>
 
             {%if user.is_authenticated %}
-            <h1><a href="/user/{{user.pk}}/"><span class="badge badge-dark">Mypage</span></a></h1>
-            <h1><a href="/logout/"><span class="badge badge-dark">Logout</span></a></h1>
+            <h1><a href="/profile/"><span class="badge badge-dark">Profile</span></a></h1>
+            <h1><a href="/account/"><span class="badge badge-dark">Account</span></a></h1>
+            <h1><a href="/user/{{user.pk}}/"><span class="badge badge-info">Mypage</span></a></h1>
+            <h1><a href="/logout/"><span class="badge badge-danger">Logout</span></a></h1>
             {%else%}
             <h1><a href="/login/"><span class="badge badge-dark">Login</span></a></h1>
             <h1><a href="/signup/"><span class="badge badge-dark">Signup</span></a></h1>
