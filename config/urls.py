@@ -27,6 +27,7 @@ urlpatterns = [
     path('user/like/<int:pk>/',views.UserLikeView.as_view()), 
     path('user/good/<int:pk>/',views.UserGoodView.as_view()), 
     path('user/<int:pk>/',views.UserView.as_view()),  #userモデルのpkが入っている
+    path('profile/',views.ProfileUpdateView.as_view()),
     
     #Account
     path('logout/',views.logoutfunc),

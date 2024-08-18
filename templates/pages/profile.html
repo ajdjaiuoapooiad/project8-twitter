@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+
+
+{%block content%}
+<div class="container">
+
+    <h1>プロフィール</h1>
+
+    <form action="" method="POST" class="" enctype='multipart/form-data'>
+    {%csrf_token%}
+        <p>name</p>
+        <input type="text" name="name" value="{{user.profile.name}}">
+
+   
+        <p>image</p>
+        <input type="file" name="image" value="{{user.profile.image}}">
+        
+
+        <p>bg_image</p>
+        <input type="file" name="bg_image" value="{{user.profile.bg_image}}">
+        
+
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+
+    <img src="/{{user.profile.image}}" class="" alt="" width="100%">
+    <img src="/{{user.profile.bg_image}}" class="" alt="" width="100%">
+
+</div>
+
+
+
+
+{%endblock%}

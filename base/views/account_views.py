@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.views import generic
 from django.contrib.auth.models import User
-from base.models import Item
+from base.models import Item,Profile
 from django.contrib.auth import authenticate,login,logout  ##
 
 
@@ -38,6 +38,9 @@ def logoutfunc(request):
     return redirect('/login/')
 
 
+
+##user_list------------------------
+
 class UserView(generic.ListView):
     model=Item
     template_name='pages/user_list.html'
@@ -61,3 +64,20 @@ class UserLikeView(generic.ListView):
     model=User
     model=Item
     template_name='pages/user_like.html'
+    
+
+##profile----------------------------
+
+class ProfileUpdateView(generic.UpdateView):
+    model=Profile
+    template_name='pages/profile.html'
+    fields={'name','image','bg_image'}
+    success_url='/profile/'
+
+    def get_object(self):
+        # URL変数ではなく、現在のユーザーから直接pkを取得
+        self.kwargs['pk']=self.request.user.pk
+        return super().get_object()   
+    
+    
+    

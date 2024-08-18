@@ -13,14 +13,14 @@
         <!----------user_icon------------------------->
         
         <div class="relative ">
-            <img class="icon_image rounded-circle absolute" src="/static/sample_image/kkrn_icon_user_1.png" alt="Circle image"  >
+            <img class="icon_image rounded-circle absolute" src="/{{user.profile.image}}" alt="Circle image"  >
 
             <h1 class="absolute text1">{{user.username}}</h1>
             <a href="" class="btn btn-primary absolute text2">フォロー</a>
 
 
 
-            <img src="/static/sample_image/pexels-iriser-673803.jpg" alt="" class="mypage-img" width="100%" height="200px">
+            <img src="/{{user.profile.bg_image}}" alt="" class="mypage-img" width="100%" height="200px">
             
  
         </div>
