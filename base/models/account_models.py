@@ -17,8 +17,8 @@ class Profile(models.Model):
     #Userとの紐付け
     user=models.OneToOneField(User,primary_key=True,on_delete=models.CASCADE)  ###
     name=models.CharField(max_length=50)
-    image=models.ImageField('アイコン画像',upload_to='static/image/',default='',blank=True)
-    bg_image=models.ImageField('背景画像',upload_to='static/image/',default='',blank=True)
+    image=models.ImageField('アイコン画像',upload_to='static/image/',default='static/sample_image/kkrn_icon_user_1.png',blank=True)
+    bg_image=models.ImageField('背景画像',upload_to='static/image/',default='static/sample_image/pexels-eberhardgross-443446 (1).jpg',blank=True)
     
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
