@@ -2,11 +2,14 @@ from django.views import generic
 from base.models import Item
 from base.forms import ItemCreateForm
 from  django.shortcuts import  render,redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class ItemView(generic.ListView):
     model=Item
     template_name='pages/item_list.html'
+    ordering = ['-created_at']  ##
+    paginate_by=5  ##
     
 def detailfunc(request,pk):            ##変更
     ##追加  
@@ -16,11 +19,12 @@ def detailfunc(request,pk):            ##変更
     return render(request,'pages/item_detail.html',{'object':object})
     
     
-class ItemCreateView(generic.CreateView):
+class ItemCreateView(LoginRequiredMixin,generic.CreateView):
     model=Item
     template_name='pages/item_form.html'
     form_class=ItemCreateForm
     success_url='/'
+    login_url='/login/'
     
     def form_valid(self,form):
     

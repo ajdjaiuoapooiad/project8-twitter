@@ -17,13 +17,13 @@
     
    
 
-            <div class="item">
+            <div class="item my-3">
             <div class="toast fade show " role="alert" aria-live="assertive" aria-atomic="true">
                 
-                <div class="item_header toast-header" >
+                <div class="item_header toast-header bg-dark" >
                     <div class="row my-3">
-                        <img class="rounded-circle" src="/{{user.profile.image}}" alt="Circle image" height="60px" width="60px">
-                        <h4 class="my-3 mx-2">{{user.profile.name}}</h4>
+                        <img class="rounded-circle" src="static/sample_image/kkrn_icon_user_1.png" alt="Circle image" height="60px" width="60px">
+                        <h4 class="my-3 mx-2"><a href="" class="text-white">{{object.username}}</a></h4>
                     </div>
 
                   <small class="ml-5">{{object.created_at}}</small>
@@ -33,13 +33,14 @@
 
                 <div class="toast-body">
 
-                    <a href="/item/{{object.pk}}/" class="font-weight-bold text-dark"><p>{{object.text|linebreaksbr}}</p></a>
+                    <a href="/item/{{object.pk}}/" class="font-weight-bold text-dark my-3"><p>{{object.text|linebreaksbr}}</p></a>
 
                     {%if object.image%}
-                    <img src="/{{object.image}}" alt="" width="100%" height="">
+                    <img src="/{{object.image}}" class="my-3" alt="" width="100%" height="">
                     {%endif%}
 
                     <a href="/item/good/{{object.pk}}/" class="btn btn-success">いいね{{object.good_count}}</a>
+                    <a href="" class="btn btn-info mx-3">閲覧数{{object.read_count}}</a>
 
                 </div>
 
@@ -48,5 +49,7 @@
             </div>
 
             {%endfor%}
+
+            {%include 'snippets/pagenation.html'%}
     </div>
 {%endblock%}
